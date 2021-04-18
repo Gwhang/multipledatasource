@@ -1,0 +1,77 @@
+192.168.92.11
+CREATE TABLE `customer` (
+  `uuid` varchar(36) NOT NULL,
+  `customerNo` varchar(12) DEFAULT NULL COMMENT '客户编码',
+  `customerName` varchar(255) DEFAULT NULL COMMENT '客户姓名',
+  `customerType` varchar(5) DEFAULT NULL COMMENT '客户类型 01 个人客户 02 企业客户',
+  `customerTypeName` varchar(255) DEFAULT NULL COMMENT '客户类型名称',
+  `customerAddr` varchar(255) DEFAULT NULL COMMENT '用户地址',
+  `customerTel` varchar(50) DEFAULT NULL COMMENT '客户手机号码',
+  `customerIdType` varchar(5) DEFAULT NULL COMMENT '客户证件类型 01 身份证 02 军官证 03 港澳通行证 04 护照 05 其他证件',
+  `customerIdTypeName` varchar(255) DEFAULT NULL COMMENT '客户证件类型名称',
+  `IdNumber` varchar(50) DEFAULT NULL COMMENT '证件号码',
+  `createDate` datetime DEFAULT NULL COMMENT '注册时间',
+  PRIMARY KEY (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `store` (
+  `uuid` varchar(36) NOT NULL,
+  `customerNo` varchar(20) DEFAULT NULL COMMENT '客户编码',
+  `storeCode` varchar(255) DEFAULT NULL COMMENT '注册门店编码',
+  `storeName` varchar(255) DEFAULT NULL COMMENT '注册门店名称',
+  `createDate` datetime DEFAULT NULL COMMENT '注册时间',
+  PRIMARY KEY (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO `test`.`customer`(`uuid`, `customerNo`, `customerName`, `customerType`, `customerTypeName`, `customerAddr`, `customerTel`, `customerIdType`, `customerIdTypeName`, `IdNumber`, `createDate`) VALUES ('0001', '1001', '张三01', '01', '个人客户', '北京市', '123456789', '01', '身份证', '111111', '2021-04-18 15:47:10');
+INSERT INTO `test`.`customer`(`uuid`, `customerNo`, `customerName`, `customerType`, `customerTypeName`, `customerAddr`, `customerTel`, `customerIdType`, `customerIdTypeName`, `IdNumber`, `createDate`) VALUES ('0002', '1002', '张三02', '01', '个人客户', '北京市', '123456789', '01', '身份证', '111111', '2021-04-18 15:47:10');
+INSERT INTO `test`.`customer`(`uuid`, `customerNo`, `customerName`, `customerType`, `customerTypeName`, `customerAddr`, `customerTel`, `customerIdType`, `customerIdTypeName`, `IdNumber`, `createDate`) VALUES ('0003', '1003', '张三03', '01', '个人客户', '北京市', '123456789', '01', '身份证', '111111', '2021-04-18 15:47:10');
+INSERT INTO `test`.`customer`(`uuid`, `customerNo`, `customerName`, `customerType`, `customerTypeName`, `customerAddr`, `customerTel`, `customerIdType`, `customerIdTypeName`, `IdNumber`, `createDate`) VALUES ('0004', '1004', '张三04', '01', '个人客户', '北京市', '123456789', '01', '身份证', '111111', '2021-04-18 15:47:10');
+INSERT INTO `test`.`customer`(`uuid`, `customerNo`, `customerName`, `customerType`, `customerTypeName`, `customerAddr`, `customerTel`, `customerIdType`, `customerIdTypeName`, `IdNumber`, `createDate`) VALUES ('0005', '1005', '张三05', '01', '个人客户', '北京市', '123456789', '01', '身份证', '111111', '2021-04-18 15:47:10');
+INSERT INTO `test`.`customer`(`uuid`, `customerNo`, `customerName`, `customerType`, `customerTypeName`, `customerAddr`, `customerTel`, `customerIdType`, `customerIdTypeName`, `IdNumber`, `createDate`) VALUES ('0006', '1006', '张三06', '01', '个人客户', '北京市', '123456789', '01', '身份证', '111111', '2021-04-18 15:47:10');
+INSERT INTO `test`.`customer`(`uuid`, `customerNo`, `customerName`, `customerType`, `customerTypeName`, `customerAddr`, `customerTel`, `customerIdType`, `customerIdTypeName`, `IdNumber`, `createDate`) VALUES ('0007', '1007', '张三07', '01', '个人客户', '北京市', '123456789', '01', '身份证', '111111', '2021-04-18 15:47:10');
+INSERT INTO `test`.`customer`(`uuid`, `customerNo`, `customerName`, `customerType`, `customerTypeName`, `customerAddr`, `customerTel`, `customerIdType`, `customerIdTypeName`, `IdNumber`, `createDate`) VALUES ('0008', '1008', '张三08', '01', '个人客户', '北京市', '123456789', '01', '身份证', '111111', '2021-04-18 15:47:10');
+INSERT INTO `test`.`customer`(`uuid`, `customerNo`, `customerName`, `customerType`, `customerTypeName`, `customerAddr`, `customerTel`, `customerIdType`, `customerIdTypeName`, `IdNumber`, `createDate`) VALUES ('0009', '1009', '张三09', '01', '个人客户', '北京市', '123456789', '01', '身份证', '111111', '2021-04-18 15:47:10');
+INSERT INTO `test`.`customer`(`uuid`, `customerNo`, `customerName`, `customerType`, `customerTypeName`, `customerAddr`, `customerTel`, `customerIdType`, `customerIdTypeName`, `IdNumber`, `createDate`) VALUES ('0010', '1010', '张三10', '01', '个人客户', '北京市', '123456789', '01', '身份证', '111111', '2021-04-18 15:47:10');
+INSERT INTO `test`.`customer`(`uuid`, `customerNo`, `customerName`, `customerType`, `customerTypeName`, `customerAddr`, `customerTel`, `customerIdType`, `customerIdTypeName`, `IdNumber`, `createDate`) VALUES ('0011', '1011', '张三11', '01', '个人客户', '北京市', '123456789', '01', '身份证', '111111', '2021-04-18 15:47:10');
+INSERT INTO `test`.`customer`(`uuid`, `customerNo`, `customerName`, `customerType`, `customerTypeName`, `customerAddr`, `customerTel`, `customerIdType`, `customerIdTypeName`, `IdNumber`, `createDate`) VALUES ('0012', '1012', '张三12', '01', '个人客户', '北京市', '123456789', '01', '身份证', '111111', '2021-04-18 15:47:10');
+
+
+INSERT INTO `test`.`store`(`uuid`, `customerNo`, `storeCode`, `storeName`, `createDate`) VALUES ('11101', '1001', '11', '北京', '2021-04-18 15:49:57');
+INSERT INTO `test`.`store`(`uuid`, `customerNo`, `storeCode`, `storeName`, `createDate`) VALUES ('11102', '1002', '12', '河北', '2021-04-18 15:49:57');
+INSERT INTO `test`.`store`(`uuid`, `customerNo`, `storeCode`, `storeName`, `createDate`) VALUES ('11103', '1003', '13', '天津', '2021-04-18 15:49:57');
+INSERT INTO `test`.`store`(`uuid`, `customerNo`, `storeCode`, `storeName`, `createDate`) VALUES ('11104', '1004', '14', '郑州', '2021-04-18 15:49:57');
+INSERT INTO `test`.`store`(`uuid`, `customerNo`, `storeCode`, `storeName`, `createDate`) VALUES ('11105', '1005', '11', '北京', '2021-04-18 15:49:57');
+INSERT INTO `test`.`store`(`uuid`, `customerNo`, `storeCode`, `storeName`, `createDate`) VALUES ('11106', '1006', '12', '河北', '2021-04-18 15:49:57');
+INSERT INTO `test`.`store`(`uuid`, `customerNo`, `storeCode`, `storeName`, `createDate`) VALUES ('11107', '1007', '13', '天津', '2021-04-18 15:49:57');
+INSERT INTO `test`.`store`(`uuid`, `customerNo`, `storeCode`, `storeName`, `createDate`) VALUES ('11108', '1008', '14', '郑州', '2021-04-18 15:49:57');
+INSERT INTO `test`.`store`(`uuid`, `customerNo`, `storeCode`, `storeName`, `createDate`) VALUES ('11109', '1009', '11', '北京', '2021-04-18 15:49:57');
+INSERT INTO `test`.`store`(`uuid`, `customerNo`, `storeCode`, `storeName`, `createDate`) VALUES ('11110', '1010', '12', '河北', '2021-04-18 15:49:57');
+INSERT INTO `test`.`store`(`uuid`, `customerNo`, `storeCode`, `storeName`, `createDate`) VALUES ('11111', '1011', '13', '天津', '2021-04-18 15:49:57');
+INSERT INTO `test`.`store`(`uuid`, `customerNo`, `storeCode`, `storeName`, `createDate`) VALUES ('11112', '1012', '14', '郑州', '2021-04-18 15:49:57');
+
+
+192.168.92.13
+CREATE TABLE `customer` (
+  `uuid` varchar(36) NOT NULL,
+  `customerNo` varchar(12) DEFAULT NULL COMMENT '客户编码',
+  `customerName` varchar(255) DEFAULT NULL COMMENT '客户姓名',
+  `customerType` varchar(5) DEFAULT NULL COMMENT '客户类型 01 个人客户 02 企业客户',
+  `customerTypeName` varchar(255) DEFAULT NULL COMMENT '客户类型名称',
+  `customerAddr` varchar(255) DEFAULT NULL COMMENT '用户地址',
+  `customerTel` varchar(50) DEFAULT NULL COMMENT '客户手机号码',
+  `customerIdType` varchar(5) DEFAULT NULL COMMENT '客户证件类型 02 身份证 01 军官证 05 港澳通行证 04 护照 03 其他证件',
+  `customerIdTypeName` varchar(255) DEFAULT NULL COMMENT '客户证件类型名称',
+  `IdNumber` varchar(50) DEFAULT NULL COMMENT '证件号码',
+  `createDate` datetime DEFAULT NULL COMMENT '注册时间',
+  `storeName` varchar(255) DEFAULT NULL COMMENT '门店名称',
+  `storeCode` varchar(255) DEFAULT NULL COMMENT '门店编码',
+  PRIMARY KEY (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+

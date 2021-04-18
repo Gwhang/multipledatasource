@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwh.multipledatasource.mapper.CustomerMapper">
+
+	<!--查询客户信息-->
+	<select id="test11_queryCustomer" resultType="com.gwh.multipledatasource.pojo.Customer">
+		SELECT
+		c.uuid,
+		c.customerNo,
+		c.customerName,
+		CASE
+
+		WHEN c.customerType = '01' THEN
+		'02'
+		WHEN c.customerType = '02' THEN
+		'01'
+		WHEN c.customerType = '03' THEN
+		'05'
+		WHEN c.customerType = '04' THEN
+		'04'
+		WHEN c.customerType = '05' THEN
+		'03'
+		END customerType,
+		CASE
+
+		WHEN c.customerType = '01' THEN
+		'军官证'
+		WHEN c.customerType = '02' THEN
+		'身份证'
+		WHEN c.customerType = '03' THEN
+		'其他证件'
+		WHEN c.customerType = '04' THEN
+		'护照'
+		WHEN c.customerType = '05' THEN
+		'港澳通行证'
+		END customerTypeName,
+		c.customerAddr,
+		c.customerTel,
+		c.customerIdType,
+		c.customerIdTypeName,
+		c.IdNumber,
+		c.createDate,
+		s.storeCode,
+		s.storeName
+		FROM
+		customer c
+		LEFT JOIN store s ON c.customerNo = s.customerNo
+		WHERE
+		1 =1
+		<if test="startDate != null and startDate != ''">
+			AND DATE(c.createDate) &gt;= #{startDate}
+		</if>
+		<if test="endDate != null and endDate != ''">
+			AND DATE(c.createDate) &lt;= #{endDate}
+		</if>
+
+
+	</select>
+
+	<!--插入客户信息-->
+	<insert id="test13_insertCustomer" parameterType="com.gwh.multipledatasource.pojo.Customer">
+			INSERT INTO customer (
+						uuid,
+				customerNo,
+				customerName,
+				customerType,
+				customerTypeName,
+				customerAddr,
+				customerTel,
+				customerIdType,
+				customerIdTypeName,
+				IdNumber,
+				createDate,
+				storeName,
+				storeCode
+					)
+					VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+			#{item.uuid},
+			#{item.customerNo},
+			#{item.customerName},
+			#{item.customerType},
+			#{item.customerTypeName},
+			#{item.customerAddr},
+			#{item.customerTel},
+			#{item.customerIdType},
+			#{item.customerIdTypeName},
+			#{item.IdNumber},
+			#{item.createDate},
+			#{item.storeName},
+			#{item.storeCode}
+			)
+		</foreach>
+
+
+	</insert>
+
+</mapper>
